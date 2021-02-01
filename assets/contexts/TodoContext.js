@@ -1,5 +1,6 @@
 import React, {createContext} from 'react';
 
+
 export const TodoContext = createContext();
 
 class TodoContextProvider extends React.Component {
@@ -7,12 +8,24 @@ class TodoContextProvider extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            todos: [{task: 'faire quelquechose'}],
+            todos: [
+                {name: 'faire quelquechose'},
+                {name: 'faire quelquechose'},
+                {name: 'faire quelquechose'},
+                {name: 'faire quelquechose'},
+        ],
         };
     }
 
 
-    createTodo() {
+    createTodo(event, todo) {
+
+        event.preventDefault();
+        let data = [...this.state.todos];
+        data.push(todo);
+        this.setState({
+            todos: data,
+        });
 
     }
 
