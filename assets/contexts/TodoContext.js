@@ -9,10 +9,10 @@ class TodoContextProvider extends React.Component {
         super(props);
         this.state = {
             todos: [
-                {name: 'faire quelquechose'},
-                {name: 'faire quelquechose'},
-                {name: 'faire quelquechose'},
-                {name: 'faire quelquechose'},
+                {id: 1, name: 'faire quelquechose'},
+                {id: 2, name: 'faire quelquechose'},
+                {id: 3, name: 'faire quelquechose'},
+                {id: 4, name: 'faire quelquechose'},
         ],
         };
     }
@@ -33,8 +33,17 @@ class TodoContextProvider extends React.Component {
 
     }
 
-    updateTodo(){
+    updateTodo(data){
+        let todos = [...this.state.todos];
+        let todo = todos.find(todo => {
+            return todo.id === data.id;
+        })
 
+        todo.name = data.name;
+
+        this.setState({
+            todos: todos,
+        });
     }
 
     deleteTodo(){
