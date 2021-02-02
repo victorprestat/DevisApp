@@ -20,7 +20,7 @@ class TodoContextProvider extends React.Component {
 
     createTodo(event, todo) {
 
-        event.preventDefault();
+         event.preventDefault();
         let data = [...this.state.todos];
         data.push(todo);
         this.setState({
@@ -48,7 +48,7 @@ class TodoContextProvider extends React.Component {
                 ...this.state,
                 createTodo: this.createTodo.bind(this),
                 updateTodo: this.updateTodo.bind(this),
-                createTodo: this.deleteTodo.bind(this),
+                deleteTodo: this.deleteTodo.bind(this),
             }}>
 
                 {this.props.children}
