@@ -225,4 +225,9 @@ class Todo
 
         return $this;
     }
+
+    public function toArray()
+    {
+        return ['id' => $this->id, 'name' => $this->name, 'customer' => $this->customer, 'company' => $this->company, 'cpclient' => $this->cpclient, 'cpcompany' => $this->cpcompany, 'telclient' => $this->telclient, 'telcompany' => $this->telcompany, 'inti1' => $this->inti1, 'montant1' => $this->montant1, 'inti2' => $this->inti2, 'montant2' => $this->montant2, 'montantTotal' => $this->montantTotal];
+    }
 }
