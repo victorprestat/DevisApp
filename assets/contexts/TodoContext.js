@@ -28,7 +28,7 @@ class TodoContextProvider extends React.Component {
         }).catch(error =>{
             console.error(error);
         })
-        
+
     }
 
     readTodo(){
@@ -43,28 +43,33 @@ class TodoContextProvider extends React.Component {
     }
 
     updateTodo(data){
-        let todos = [...this.state.todos];
-        let todo = todos.find(todo => {
-            return todo.id === data.id;
-        })
-
-        todo.customer = data.customer;
-        todo.name = data.name;
-        todo.company = data.company;
-        todo.cpclient = data.cpclient;
-        todo.cpcompany = data.cpcompany;
-        todo.telclient = data.telclient;
-        todo.telcompany = data.telcompany;
-        todo.inti1 = data.inti1;
-        todo.montant1 = data.montant1;
-        todo.inti2 = data.inti2;
-        todo.montant2 = data.montant2;
-        todo.montantTotal = data.montantTotal;
+        axios.put('/api/todo/update/' + data.id, data)
+            .then( response => {
+                let todos = [...this.state.todos];
+                let todo = todos.find(todo => {
+                    return todo.id === data.id;
+                })
         
-
-        this.setState({
-            todos: todos,
-        });
+                todo.customer = data.customer;
+                todo.name = data.name;
+                todo.company = data.company;
+                todo.cpclient = data.cpclient;
+                todo.cpcompany = data.cpcompany;
+                todo.telclient = data.telclient;
+                todo.telcompany = data.telcompany;
+                todo.inti1 = data.inti1;
+                todo.montant1 = data.montant1;
+                todo.inti2 = data.inti2;
+                todo.montant2 = data.montant2;
+                todo.montantTotal = data.montantTotal;
+                
+        
+                this.setState({
+                    todos: todos,
+                });
+            }).catch(error =>{
+                console.log(error);
+            })
     }
 
     deleteTodo(data){

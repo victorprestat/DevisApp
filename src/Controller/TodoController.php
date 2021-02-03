@@ -12,7 +12,9 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
-#[Route('/api/todo', name: 'api_todo')]
+/**
+ * @Route("/api/todo", name="api_todo")
+ */
 class TodoController extends AbstractController
 {
     /**
@@ -27,7 +29,10 @@ class TodoController extends AbstractController
         $this->entityManager = $entityManager;
         $this->todoRepository = $todoRepository;
     }
-    #[Route('/read', name: 'api_todo_read')]
+    /**
+     * @Route("/read", name="api_todo_read", methods={"GET"})
+     */
+
     public function index(): Response
     {
        $todos = $this->todoRepository->findAll();
@@ -40,9 +45,8 @@ class TodoController extends AbstractController
        return $this->json($arrayOfTodos);
     }
 
-    #[Route('/create', name: 'api_todo_create')]
-    
     /**
+     * @Route("/create", name="api_todo_create", methods={"POST"})
      * @param Request $request
      * @return JsonResponse
      */
@@ -75,5 +79,40 @@ class TodoController extends AbstractController
        }catch(Exception $exception) {
             //erreurmsg
        }
+    }
+
+    /**
+     * @Route("/update/{id}", name="api_todo_update", methods={"PUT"})
+     * @param Request $request
+     * @param Todo $todo
+     * @return JsonResponse
+     */
+    
+    public function update(Request $request, Todo $todo)
+    {
+       $content = json_decode($request->getContent());
+
+       $todo->setName($content->name);
+       $todo->setCustomer($content->customer);
+       $todo->setCompany($content->company);
+       $todo->setCpclient($content->cpclient);
+       $todo->setCpcompany($content->cpcompany);
+       $todo->setTelclient($content->telclient);
+       $todo->settelcompany($content->telcompany);
+       $todo->setInti1($content->inti1);
+       $todo->setMontant1($content->montant1);
+       $todo->setInti2($content->inti2);
+       $todo->setMontant2($content->montant2);
+       $todo->setMontantTotal($content->montantTotal);
+
+       try {
+            $this->entityManager->flush();
+       }catch(Exception $exception){
+           //erreurmsg
+       }
+
+       return $this->json([
+            'message' => 'Le devis à été mis à jour'
+       ]);
     }
 }
