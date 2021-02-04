@@ -115,4 +115,25 @@ class TodoController extends AbstractController
             'message' => 'Le devis à été mis à jour'
        ]);
     }
+
+    /**
+     * @Route("/delete/{id}", name="api_todo_delete", methods={"DELETE"})
+     * @param Todo $todo
+     * @return JsonResponse
+     */
+     
+    public function delete(Todo $todo)
+    {
+       try{
+        $this->entityManager->remove($todo);
+        $this->entityManager->flush();
+        
+       }catch(Exception $exception) {
+            //erreurmsg
+       }
+
+       return $this->json([
+        'message' => 'Le devis à été supprimer',
+    ]);
+    }
 }
