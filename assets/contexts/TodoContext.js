@@ -106,7 +106,7 @@ class TodoContextProvider extends React.Component {
                 createTodo: this.createTodo.bind(this),
                 updateTodo: this.updateTodo.bind(this),
                 deleteTodo: this.deleteTodo.bind(this),
-                setMessage: () => this.setState({message: message}),
+                setMessage: (message) => this.setState({message: message}),
             }}>
 
                 {this.props.children}

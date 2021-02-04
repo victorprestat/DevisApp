@@ -74,11 +74,13 @@ class TodoController extends AbstractController
         $this->entityManager->persist($todo);
         $this->entityManager->flush();
        }catch(Exception $exception) {
-            //erreurmsg
+            return $this->json([
+                'message' => ["text" => ["Le devis n'a pu être ajouté"], "level" => "error"]
+            ]);
        }
        return $this->json([
         'todo' => $todo ->toArray(),
-        'message' => ['text' => 'Le devis à été créé !', 'level' => 'success']
+        'message' => ['text' => ['Le devis à été créé !', 'Devis :' . $content->name], 'level' => 'success']
     ]);
     }
 
