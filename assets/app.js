@@ -3,21 +3,23 @@ import ReactDOM from 'react-dom';
 import AppSnackbar from './components/AppSnackbar';
 import TodoContextProvider from './contexts/TodoContext';
 import TodoTable from './components/TodoTable';
-import { CssBaseline } from '@material-ui/core';
-
+import DefaultThemeProvider from './components/themes/DefaultThemeProvider';
 
 class App extends React.Component {
 
     render() {
         return (
-            <TodoContextProvider>
-                <CssBaseline>
+            <TodoContextProvider>            
                 <TodoTable/>
                 <AppSnackbar/>
-                </CssBaseline>
             </TodoContextProvider>
         );
     }
 }
 
-ReactDOM.render(<App/>, document.getElementById('root'));
+ReactDOM.render(
+<DefaultThemeProvider>
+<App/>
+</DefaultThemeProvider>
+    
+    , document.getElementById('root'));

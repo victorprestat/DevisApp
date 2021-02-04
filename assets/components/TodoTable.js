@@ -1,7 +1,7 @@
 import Table from '@material-ui/core/Table'
 import React, {useContext, useState, Fragment} from 'react';
 import { TodoContext } from '../contexts/TodoContext';
-import { TableHead, TableCell, TableBody, Icon, IconButton, TextField } from '@material-ui/core';
+import { TableHead, TableCell, TableBody, Icon, IconButton, TextField, createStyles, withStyles } from '@material-ui/core';
 import TableRow from '@material-ui/core/TableRow';
 import EditIcon from '@material-ui/icons/Edit';
 import DeleteIcon from '@material-ui/icons/Delete';
@@ -10,8 +10,13 @@ import DoneIcon from '@material-ui/icons/Done';
 import CancelIcon from '@material-ui/icons/Cancel';
 import DeleteDialog from './DeleteDialog';
 
+const styles = (theme) => createStyles( {
+    thead: {
+        backgroundColor: 'orange',
+    },
+});
 
-function TodoTable(){
+function TodoTable(props){
 
     const context = useContext(TodoContext);  
     const [addTodo, setAddTodo] = useState(''); 
@@ -51,7 +56,11 @@ function TodoTable(){
     const [editTodo10, setEditTodo10] = useState('');
     const [editTodo11, setEditTodo11] = useState('');
     const [deleteConfirmationIsShown, setDeleteConfirmationIsShown] = useState(false); 
-    const [todoToBeDeleted, setTodoToBeDeleted] = useState(null);     
+    const [todoToBeDeleted, setTodoToBeDeleted] = useState(null);  
+    
+    //const classes = styles();
+
+    const {classes} = props;
     
       
         return (
@@ -60,9 +69,11 @@ function TodoTable(){
                 context.createTodo(event, {name: addTodo, customer: addTodo1, company: addTodo2, cpclient: addTodo3, cpcompany: addTodo4, telclient: addTodo5, telcompany: addTodo6, inti1: addTodo7, montant1: addTodo8, inti2: addTodo9, montant2: addTodo10, montantTotal: addTodo11});
                 }}>
             <Table>
-                <TableHead>
+                <TableHead className={classes.thead}>
                     <TableRow>
-                        <TableCell>Votre Devis</TableCell>
+                        <TableCell>Votre DEVIS</TableCell>
+                        <TableCell/><TableCell/><TableCell/><TableCell/><TableCell/><TableCell/><TableCell/><TableCell/><TableCell/><TableCell/><TableCell/>
+                        <TableCell>Actions</TableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>
@@ -414,4 +425,4 @@ function TodoTable(){
             );           
 }
 
-export default TodoTable;
+export default withStyles(styles)(TodoTable);
