@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Todo;
+use App\Form\TodoType;
 use App\Repository\TodoRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
@@ -55,6 +56,20 @@ class TodoController extends AbstractController
     {
        $content = json_decode($request->getContent());
 
+       $form = $this->createForm(TodoType::class);
+       $form->submit((array)$content);
+
+       if(!$form->isValid()){
+           $errors = [];
+           foreach ($form->getErrors(true, true) as $error) {
+               $propertyName = $error->getOrigin()->getName();
+               $errors[$propertyName] = $error->getMessage();
+           }
+           return $this->json([
+            'message' => ["text" => implode( "\n", $errors), "level" => "error"]
+           ]);
+       }
+
        $todo = new Todo();
 
        $todo->setName($content->name);
@@ -80,7 +95,7 @@ class TodoController extends AbstractController
        }
        return $this->json([
         'todo' => $todo ->toArray(),
-        'message' => ['text' => ['Le devis à été créé !', 'Devis :' . $content->name], 'level' => 'success']
+        'message' => ['text' => ['Le devis à été créé ! ', 'Devis :' . $content->name], 'level' => 'success']
     ]);
     }
 
@@ -94,6 +109,8 @@ class TodoController extends AbstractController
     public function update(Request $request, Todo $todo)
     {
        $content = json_decode($request->getContent());
+
+    
 
        $todo->setName($content->name);
        $todo->setCustomer($content->customer);
@@ -111,7 +128,9 @@ class TodoController extends AbstractController
        try {
             $this->entityManager->flush();
        }catch(Exception $exception){
-           //erreurmsg
+        return $this->json([
+            'message' => ["text" => ["Le devis n'a pu être ajouté"], "level" => "error"]
+        ]);
        }
 
        return $this->json([

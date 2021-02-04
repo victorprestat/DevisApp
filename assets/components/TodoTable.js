@@ -62,8 +62,7 @@ function TodoTable(){
             <Table>
                 <TableHead>
                     <TableRow>
-                        <TableCell>Task</TableCell>
-                        <TableCell>Action</TableCell>
+                        <TableCell>Votre Devis</TableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>
