@@ -52,9 +52,9 @@ const Navigation = () => {
                 <Typography variant="h6" color="textPrimary" underline="none">DevisApp</Typography>
                 </Link>
                 <Box flexGrow={1}/>
-                <Link to="/pdf">
-                <Button>Button</Button>
-                </Link>
+                
+                <Button href="/pdf">Mes devis PDF</Button>
+                
             </Toolbar>
             <Drawer anchor="left" variant="temporary" onClose={toggleDrawer} open={drawerOpen}>
                 <List className={classes.list}>

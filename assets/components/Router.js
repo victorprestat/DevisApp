@@ -63,7 +63,6 @@ const Router = () => {
                     <Route exact path="/todo-list" component={TodoList}/>
                     <Route exact path="/tag-list" component={AdminList}/>
                     <Route exact path="/devis-list" component={DevisList}/>
-                    <Route exact path="/pdf" component={}/>
                     <Route component={NotFound}/>
             </Switch>
         </BrowserRouter>
