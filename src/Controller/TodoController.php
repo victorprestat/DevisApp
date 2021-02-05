@@ -136,6 +136,7 @@ class TodoController extends AbstractController
        $todo->setInti2($content->inti2);
        $todo->setMontant2($content->montant2);
        $todo->setMontantTotal($content->montantTotal);
+       $todo->setEtat($content->etat);
 
        try {
             $this->entityManager->flush();

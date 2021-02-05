@@ -8,16 +8,27 @@ import Redirect from 'react-router-dom/Redirect';
 
 import {makeStyles} from '@material-ui/core/styles';
 
+
 import NotFound from './NotFound';
 import TodoContextProvider from '../contexts/TodoContext';
 import AppSnackbar from './AppSnackbar';
 import Navigation from './Navigation';
 import TodoTable from './TodoTable';
+import AdminDevis from './AdminDevis';
 
 const TodoList = () => (
 
     <TodoContextProvider>           
                 <TodoTable/>
+                <AppSnackbar/>
+    </TodoContextProvider>
+
+);
+
+const AdminList = () => (
+
+    <TodoContextProvider>           
+                <AdminDevis/>
                 <AppSnackbar/>
     </TodoContextProvider>
 
@@ -40,7 +51,7 @@ const Router = () => {
             <Switch>
                 <Redirect exact from="/" to="/todo-list"/>
                     <Route exact path="/todo-list" component={TodoList}/>
-                    <Route exact path="/tag-list" component={null}/>
+                    <Route exact path="/tag-list" component={AdminList}/>
                     <Route component={NotFound}/>
             </Switch>
         </BrowserRouter>
