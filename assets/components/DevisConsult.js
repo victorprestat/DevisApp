@@ -78,15 +78,13 @@ function DevisConsult(props){
       
         return (
             <Fragment>
-            <form onSubmit={(event) => {
-                context.createTodo(event, {name: addTodo, customer: addTodo1, company: addTodo2, cpclient: addTodo3, cpcompany: addTodo4, telclient: addTodo5, telcompany: addTodo6, inti1: addTodo7, montant1: addTodo8, inti2: addTodo9, montant2: addTodo10, montantTotal: addTodo11});
-                }}>
+           
             <Table>
                 <TableHead className={classes.thead}>
                     <TableRow>
-                        <TableCell>Gestion des devis</TableCell>
+                        <TableCell>Conculter ses devis</TableCell>
                         <TableCell/><TableCell/><TableCell/><TableCell/><TableCell/><TableCell/><TableCell/><TableCell/><TableCell/><TableCell/><TableCell/>
-                        <TableCell>Actions</TableCell>
+                        <TableCell></TableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>
@@ -95,15 +93,8 @@ function DevisConsult(props){
                         <TableCell>Intitulé du devis</TableCell>
                         <TableCell>Client</TableCell>
                         <TableCell>Société</TableCell>
-                        <TableCell>Code postal du client</TableCell>
-                        <TableCell>Code postal de l'entreprise</TableCell>
-                        <TableCell>Numéro de téléphone du client</TableCell>
-                        <TableCell>Numéro de téléphone de l'entreprise</TableCell>
-                        <TableCell>Premiére ligne</TableCell>
-                        <TableCell>Montant premiére ligne</TableCell>
-                        <TableCell>Seconde ligne</TableCell>
-                        <TableCell>Montant seconde ligne</TableCell>
                         <TableCell>Total</TableCell>
+                        <TableCell>Statut</TableCell>
                     </TableRow>
                     {context.todos.slice().reverse().map((todo, index) => (
                     <TableRow key={'todo ' + index}>
@@ -175,168 +166,6 @@ function DevisConsult(props){
                     
                     </TableCell>
 
-
-                    <TableCell>
-                    
-                    {editIsShown3 === todo.id ?
-                    <TextField value={editTodo3} onChange={(event) => {setEditTodo3(event.target.value)}}
-                    InputProps={{
-                        endAdornment: <Fragment>
-                         <IconButton onClick={() => {context.updateTodo({id: todo.id, customer: editTodo1, name: editTodo, company: editTodo2, cpclient: editTodo3, cpcompany: editTodo4, telclient: editTodo5, telcompany: editTodo6, inti1: editTodo7, montant1: editTodo8, inti2: editTodo9, montant2: editTodo10, montantTotal: editTodo11, etat: editTodo12} );
-                         setEditIsShown3(false);
-                        }}></IconButton>
-                        
-                         </Fragment>,
-                      }}
-                      />
-
-                        :
-                    todo.cpclient
-                    }
-                    
-                    </TableCell>
-
-                    <TableCell>
-                    
-                    {editIsShown4 === todo.id ?
-                    <TextField value={editTodo4} onChange={(event) => {setEditTodo4(event.target.value)}}
-                    InputProps={{
-                        endAdornment: <Fragment>
-                         <IconButton onClick={() => {context.updateTodo({id: todo.id, customer: editTodo1, name: editTodo, company: editTodo2, cpclient: editTodo3, cpcompany: editTodo4, telclient: editTodo5, telcompany: editTodo6, inti1: editTodo7, montant1: editTodo8, inti2: editTodo9, montant2: editTodo10, montantTotal: editTodo11, etat: editTodo12} );
-                         setEditIsShown4(false);
-                        }}></IconButton>
-                        
-                         </Fragment>,
-                      }}
-                      />
-
-                        :
-                    todo.cpcompany
-                    }
-                    
-                    </TableCell>
-
-
-                    <TableCell>
-                    
-                    {editIsShown5 === todo.id ?
-                    <TextField value={editTodo5} onChange={(event) => {setEditTodo5(event.target.value)}}
-                    InputProps={{
-                        endAdornment: <Fragment>
-                         <IconButton onClick={() => {context.updateTodo({id: todo.id, customer: editTodo1, name: editTodo, company: editTodo2, cpclient: editTodo3, cpcompany: editTodo4, telclient: editTodo5, telcompany: editTodo6, inti1: editTodo7, montant1: editTodo8, inti2: editTodo9, montant2: editTodo10, montantTotal: editTodo11, etat: editTodo12} );
-                         setEditIsShown5(false);
-                        }}></IconButton>
-                        
-                         </Fragment>,
-                      }}
-                      />
-
-                        :
-                    todo.telclient
-                    }
-                    
-                    </TableCell>
-
-                    <TableCell>
-                    
-                    {editIsShown6 === todo.id ?
-                    <TextField value={editTodo6} onChange={(event) => {setEditTodo6(event.target.value)}}
-                    InputProps={{
-                        endAdornment: <Fragment>
-                         <IconButton onClick={() => {context.updateTodo({id: todo.id, customer: editTodo1, name: editTodo, company: editTodo2, cpclient: editTodo3, cpcompany: editTodo4, telclient: editTodo5, telcompany: editTodo6, inti1: editTodo7, montant1: editTodo8, inti2: editTodo9, montant2: editTodo10, montantTotal: editTodo11, etat: editTodo12} );
-                         setEditIsShown6(false);
-                        }}></IconButton>
-                        
-                         </Fragment>,
-                      }}
-                      />
-
-                        :
-                    todo.telcompany
-                    }
-                    
-                    </TableCell>
-
-                    <TableCell>
-                    
-                    {editIsShown7 === todo.id ?
-                    <TextField value={editTodo7} onChange={(event) => {setEditTodo7(event.target.value)}}
-                    InputProps={{
-                        endAdornment: <Fragment>
-                         <IconButton onClick={() => {context.updateTodo({id: todo.id, customer: editTodo1, name: editTodo, company: editTodo2, cpclient: editTodo3, cpcompany: editTodo4, telclient: editTodo5, telcompany: editTodo6, inti1: editTodo7, montant1: editTodo8, inti2: editTodo9, montant2: editTodo10, montantTotal: editTodo11, etat: editTodo12} );
-                         setEditIsShown7(false);
-                        }}></IconButton>
-                        
-                         </Fragment>,
-                      }}
-                      />
-
-                        :
-                    todo.inti1
-                    }
-                    
-                    </TableCell>
-
-                    <TableCell>
-                    
-                    {editIsShown8 === todo.id ?
-                    <TextField value={editTodo8} onChange={(event) => {setEditTodo8(event.target.value)}}
-                    InputProps={{
-                        endAdornment: <Fragment>
-                         <IconButton onClick={() => {context.updateTodo({id: todo.id, customer: editTodo1, name: editTodo, company: editTodo2, cpclient: editTodo3, cpcompany: editTodo4, telclient: editTodo5, telcompany: editTodo6, inti1: editTodo7, montant1: editTodo8, inti2: editTodo9, montant2: editTodo10, montantTotal: editTodo11, etat: editTodo12} );
-                         setEditIsShown8(false);
-                        }}></IconButton>
-                        
-                         </Fragment>,
-                      }}
-                      />
-
-                        :
-                    todo.montant1
-                    }
-                    
-                    </TableCell>
-
-                    <TableCell>
-                    
-                    {editIsShown9 === todo.id ?
-                    <TextField value={editTodo9} onChange={(event) => {setEditTodo9(event.target.value)}}
-                    InputProps={{
-                        endAdornment: <Fragment>
-                         <IconButton onClick={() => {context.updateTodo({id: todo.id, customer: editTodo1, name: editTodo, company: editTodo2, cpclient: editTodo3, cpcompany: editTodo4, telclient: editTodo5, telcompany: editTodo6, inti1: editTodo7, montant1: editTodo8, inti2: editTodo9, montant2: editTodo10, montantTotal: editTodo11, etat: editTodo12} );
-                         setEditIsShown9(false);
-                        }}></IconButton>
-                        
-                         </Fragment>,
-                      }}
-                      />
-
-                        :
-                    todo.inti2
-                    }
-                    
-                    </TableCell>
-
-                    <TableCell>
-                    
-                    {editIsShown10 === todo.id ?
-                    <TextField value={editTodo10} onChange={(event) => {setEditTodo10(event.target.value)}}
-                    InputProps={{
-                        endAdornment: <Fragment>
-                         <IconButton onClick={() => {context.updateTodo({id: todo.id, customer: editTodo1, name: editTodo, company: editTodo2, cpclient: editTodo3, cpcompany: editTodo4, telclient: editTodo5, telcompany: editTodo6, inti1: editTodo7, montant1: editTodo8, inti2: editTodo9, montant2: editTodo10, montantTotal: editTodo11, etat: editTodo12} );
-                         setEditIsShown10(false);
-                        }}></IconButton>
-                        
-                         </Fragment>,
-                      }}
-                      />
-
-                        :
-                    todo.montant2
-                    }
-                    
-                    </TableCell>
-
                     <TableCell>
                     {editIsShown11 === todo.id ?
                     <TextField value={editTodo11} onChange={(event) => {setEditTodo11(event.target.value)}}
@@ -347,7 +176,7 @@ function DevisConsult(props){
                         }}></IconButton>
                         
                          </Fragment>,
-                      }}
+                      }} 
                       />
 
                         :
@@ -355,7 +184,7 @@ function DevisConsult(props){
                     }
                     
                     </TableCell>
-                    <TableCell>
+                    
 
 
 
@@ -378,21 +207,14 @@ function DevisConsult(props){
                             todo.etat}
                            
                           </TableCell>
-
-                    <Button color="primary" onClick={() => {setEditIsShown(todo.id); setEditIsShown1(todo.id); setEditIsShown2(todo.id); setEditIsShown3(todo.id); setEditIsShown4(todo.id); setEditIsShown5(todo.id); setEditIsShown6(todo.id); setEditIsShown7(todo.id); setEditIsShown8(todo.id); setEditIsShown9(todo.id); setEditIsShown10(todo.id); setEditIsShown11(todo.id); setEditIsShown12(todo.id); setEditTodo(todo.name); setEditTodo1(todo.customer); setEditTodo2(todo.company); setEditTodo3(todo.cpclient); setEditTodo4(todo.cpcompany); setEditTodo5(todo.telclient); setEditTodo6(todo.telcompany); setEditTodo7(todo.inti1); setEditTodo8(todo.montant1); setEditTodo9(todo.inti2); setEditTodo10(todo.montant2); setEditTodo11(todo.montantTotal); setEditTodo12(todo.etat)}}>Modifier le statut</Button>
-
-                        <IconButton color="secondary" onClick={() => {setDeleteConfirmationIsShown(true); setTodoToBeDeleted(todo)}}><DeleteIcon></DeleteIcon></IconButton>
+  
                          
-                    </TableCell>
+                    
                     </TableRow>
                     ))}
                 </TableBody>
             </Table>
-            </form>
-
-            {deleteConfirmationIsShown && (
-                <DeleteDialog todo={todoToBeDeleted} open={deleteConfirmationIsShown} setDeleteConfirmationIsShown={setDeleteConfirmationIsShown}/>
-            )}        
+            
             
 
             </Fragment>

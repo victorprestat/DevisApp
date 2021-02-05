@@ -15,6 +15,8 @@ import {
     Typography,
 } from '@material-ui/core';
 import {Menu as MenuIcon, List as ListIcon, Label as LabelIcon} from '@material-ui/icons';
+import SearchIcon from '@material-ui/icons/Search';
+import HomeIcon from '@material-ui/icons/Home';
 
 const useStyles = makeStyles(theme => ({
     menuIcon: {
@@ -37,8 +39,9 @@ const Navigation = () => {
     };
 
     const drawerItems = [
-        {text: 'Créer un devis', icon: <ListIcon/>, link: '/todo-list'},
+        {text: 'Créer un devis', icon: <HomeIcon/>, link: '/todo-list'},
         {text: 'Gestion des devis', icon: <LabelIcon/>, link: '/tag-list'},
+        {text: 'Consulter ses devis', icon: <SearchIcon/>, link: '/devis-list'},
     ];
 
     return (

@@ -15,6 +15,7 @@ import AppSnackbar from './AppSnackbar';
 import Navigation from './Navigation';
 import TodoTable from './TodoTable';
 import AdminDevis from './AdminDevis';
+import DevisConsult from './DevisConsult';
 
 const TodoList = () => (
 
@@ -29,6 +30,15 @@ const AdminList = () => (
 
     <TodoContextProvider>           
                 <AdminDevis/>
+                <AppSnackbar/>
+    </TodoContextProvider>
+
+);
+
+const DevisList = () => (
+
+    <TodoContextProvider>           
+                <DevisConsult/>
                 <AppSnackbar/>
     </TodoContextProvider>
 
@@ -52,6 +62,7 @@ const Router = () => {
                 <Redirect exact from="/" to="/todo-list"/>
                     <Route exact path="/todo-list" component={TodoList}/>
                     <Route exact path="/tag-list" component={AdminList}/>
+                    <Route exact path="/devis-list" component={DevisList}/>
                     <Route component={NotFound}/>
             </Switch>
         </BrowserRouter>
