@@ -13,6 +13,7 @@ use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\Type;
 use Symfony\Component\Validator\Constraints\NotBlank;
+use Symfony\Component\Validator\Constraints\NotEqualTo;
 
 class TodoType extends AbstractType
 {
@@ -44,21 +45,39 @@ class TodoType extends AbstractType
             ])
             ->add('cpclient', TextAreaType::class, [
                 'constraints' => [
+                    new NotEqualTo([
+                        'value' => 5,
+                        'message' => 'Vous devez rentrer un code postal valide.',
+
+                    ]),
                     new Type(['digit', 'message' => 'Vous devez rentrer un code postal valide.'])
                 ]
             ])
             ->add('cpcompany', TextAreaType::class, [
                 'constraints' => [
+                    new NotEqualTo([
+                        'value' => 5,
+                        'message' => 'Vous devez rentrer un code postal valide.',
+                    ]),
                     new Type(['digit', 'message' => 'Vous devez rentrer un code postal valide.'])
                 ]
             ])
             ->add('telclient', TelType::class, [
                 'constraints' => [
+                    new NotEqualTo([
+                        'value' => 10,
+                        'message' => 'Vous devez rentrer un numéro de téléphone client valide.',
+
+                    ]),
                     new NotBlank(['message' => 'Vous devez rentrer un numéro de téléphone valide.'])
                 ]
             ])
             ->add('telcompany', TelType::class, [
                 'constraints' => [
+                    new NotEqualTo([
+                        'value' => 10,
+                        'message' => 'Vous devez rentrer un numéro de téléphone Société valide.',
+                    ]),
                     new NotBlank(['message' => 'Vous devez rentrer un numéro de téléphone valide.'])
                 ]
             ])
