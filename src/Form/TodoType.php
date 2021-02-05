@@ -87,6 +87,9 @@ class TodoType extends AbstractType
                     new Type(['digit', 'message' => 'Vous devez rentrer un montant valide.'])
                 ]
             ])
+            ->add('etat', TextAreaType::class, [
+                
+            ])
         ;
     }
 

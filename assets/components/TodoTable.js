@@ -40,6 +40,7 @@ function TodoTable(props){
     const [addTodo9, setAddTodo9] = useState('');
     const [addTodo10, setAddTodo10] = useState('');
     const [addTodo11, setAddTodo11] = useState('');
+    const [addTodo12, setAddTodo12] = useState('');
     const [editIsShown, setEditIsShown] = useState(false);
     const [editIsShown1, setEditIsShown1] = useState(false);
     const [editIsShown2, setEditIsShown2] = useState(false);
@@ -75,7 +76,7 @@ function TodoTable(props){
         return (
             <Fragment>
             <form onSubmit={(event) => {
-                context.createTodo(event, {name: addTodo, customer: addTodo1, company: addTodo2, cpclient: addTodo3, cpcompany: addTodo4, telclient: addTodo5, telcompany: addTodo6, inti1: addTodo7, montant1: addTodo8, inti2: addTodo9, montant2: addTodo10, montantTotal: addTodo11});
+                context.createTodo(event, {name: addTodo, customer: addTodo1, company: addTodo2, cpclient: addTodo3, cpcompany: addTodo4, telclient: addTodo5, telcompany: addTodo6, inti1: addTodo7, montant1: addTodo8, inti2: addTodo9, montant2: addTodo10, montantTotal: addTodo11, etat: addTodo12});
                 }}>
             <Table>
                 <TableHead className={classes.thead}>

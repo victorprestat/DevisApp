@@ -37,8 +37,8 @@ const Navigation = () => {
     };
 
     const drawerItems = [
-        {text: 'TodoList', icon: <ListIcon/>, link: '/todo-list'},
-        {text: 'Tags', icon: <LabelIcon/>, link: '/tag-list'},
+        {text: 'Créer un devis', icon: <ListIcon/>, link: '/todo-list'},
+        {text: 'Gestion des devis', icon: <LabelIcon/>, link: '/tag-list'},
     ];
 
     return (

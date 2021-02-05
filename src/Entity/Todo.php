@@ -77,6 +77,11 @@ class Todo
      */
     private $montantTotal;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $etat;
+
     
 
 
@@ -229,11 +234,23 @@ class Todo
         return $this;
     }
 
+    public function getEtat(): ?string
+    {
+        return $this->etat;
+    }
+
+    public function setEtat(string $etat): self
+    {
+        $this->etat = $etat;
+
+        return $this;
+    }
+
    
 
 
     public function toArray()
     {
-        return ['id' => $this->id, 'name' => $this->name, 'customer' => $this->customer, 'company' => $this->company, 'cpclient' => $this->cpclient, 'cpcompany' => $this->cpcompany, 'telclient' => $this->telclient, 'telcompany' => $this->telcompany, 'inti1' => $this->inti1, 'montant1' => $this->montant1, 'inti2' => $this->inti2, 'montant2' => $this->montant2, 'montantTotal' => $this->montantTotal];
+        return ['id' => $this->id, 'name' => $this->name, 'customer' => $this->customer, 'company' => $this->company, 'cpclient' => $this->cpclient, 'cpcompany' => $this->cpcompany, 'telclient' => $this->telclient, 'telcompany' => $this->telcompany, 'inti1' => $this->inti1, 'montant1' => $this->montant1, 'inti2' => $this->inti2, 'montant2' => $this->montant2, 'montantTotal' => $this->montantTotal, 'etat' => $this->etat];
     }
 }

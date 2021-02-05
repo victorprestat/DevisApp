@@ -27,7 +27,7 @@ const styles = (theme) => createStyles( {
 
 
 
-function AdminDevis(props){
+function DevisConsult(props){
 
     const context = useContext(TodoContext);  
     const [addTodo, setAddTodo] = useState(''); 
@@ -400,4 +400,4 @@ function AdminDevis(props){
 }
 
 
-export default withStyles(styles)(AdminDevis);
+export default withStyles(styles)(DevisConsult);
