@@ -69,7 +69,6 @@ class TodoContextProvider extends React.Component {
                 todo.inti2 = data.inti2;
                 todo.montant2 = data.montant2;
                 todo.montantTotal = data.montantTotal;
-                todo.etat = data.etat;
                 
         
                 this.setState({

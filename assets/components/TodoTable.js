@@ -13,7 +13,7 @@ import { fontWeight } from '@material-ui/system';
 
 const styles = (theme) => createStyles( {
     thead: {
-        backgroundColor: '#5e6bb5',
+        backgroundColor: '#4786c4',
     },
     td: {
         padding: theme.spacing(5),

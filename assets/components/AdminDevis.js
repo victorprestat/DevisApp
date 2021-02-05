@@ -10,15 +10,11 @@ import DoneIcon from '@material-ui/icons/Done';
 import CancelIcon from '@material-ui/icons/Cancel';
 import DeleteDialog from './DeleteDialog';
 import { fontWeight } from '@material-ui/system';
-import { makeStyles } from '@material-ui/core/styles';
-import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
-import FormControl from '@material-ui/core/FormControl';
-import Select from '@material-ui/core/Select';
 
 const styles = (theme) => createStyles( {
     thead: {
-        backgroundColor: '#cc4308',
+        backgroundColor: '#db6f39',
     },
     td: {
         padding: theme.spacing(5),
@@ -45,7 +41,6 @@ function AdminDevis(props){
     const [addTodo9, setAddTodo9] = useState('');
     const [addTodo10, setAddTodo10] = useState('');
     const [addTodo11, setAddTodo11] = useState('');
-    const [addTodo12, setAddTodo12] = useState('');
     const [editIsShown, setEditIsShown] = useState(false);
     const [editIsShown1, setEditIsShown1] = useState(false);
     const [editIsShown2, setEditIsShown2] = useState(false);
@@ -70,7 +65,6 @@ function AdminDevis(props){
     const [editTodo9, setEditTodo9] = useState('');
     const [editTodo10, setEditTodo10] = useState('');
     const [editTodo11, setEditTodo11] = useState('');
-    const [editTodo12, setEditTodo12] = useState('');
     const [deleteConfirmationIsShown, setDeleteConfirmationIsShown] = useState(false); 
     const [todoToBeDeleted, setTodoToBeDeleted] = useState(null);  
     
@@ -93,6 +87,7 @@ function AdminDevis(props){
                     </TableRow>
                 </TableHead>
                 <TableBody>
+                    
                     <TableRow>
                         <TableCell>Intitulé du devis</TableCell>
                         <TableCell>Client</TableCell>
@@ -362,31 +357,14 @@ function AdminDevis(props){
 
 
 
-                        <IconButton color="primary" onClick={() => {setEditIsShown12(true); setEditTodo12(todo.etat)}}><EditIcon></EditIcon></IconButton>
+                        <IconButton color="primary" onClick={() => {setEditIsShown(todo.id); setEditIsShown1(todo.id); setEditIsShown2(todo.id); setEditIsShown3(todo.id); setEditIsShown4(todo.id); setEditIsShown5(todo.id); setEditIsShown6(todo.id); setEditIsShown7(todo.id); setEditIsShown8(todo.id); setEditIsShown9(todo.id); setEditIsShown10(todo.id); setEditIsShown11(todo.id); setEditTodo(todo.name); setEditTodo1(todo.customer); setEditTodo2(todo.company); setEditTodo3(todo.cpclient); setEditTodo4(todo.cpcompany); setEditTodo5(todo.telclient); setEditTodo6(todo.telcompany); setEditTodo7(todo.inti1); setEditTodo8(todo.montant1); setEditTodo9(todo.inti2); setEditTodo10(todo.montant2); setEditTodo11(todo.montantTotal)}}><EditIcon></EditIcon></IconButton>
 
-                        <TableCell>
-                    
-                        <FormControl className={classes.formControl}>
-        <InputLabel htmlFor="age-native-simple">Age</InputLabel>
-        <Select
-          native
-          value={editTodo12}
-          onChange={(event) => {setEditTodo12(event.target.value)}}
-          inputProps={{
-            name: 'age',
-            id: 'age-native-simple',
-          }}
-        >
-          <option aria-label="None" value="" />
-          <option value={10}>Ten</option>
-          <option value={20}>Twenty</option>
-          <option value={30}>Thirty</option>
-        </Select>
-      </FormControl>
-                    
-                        </TableCell>
-
-                      
+                        <TextField id="select" label="Traitement" value="10" select>
+                            <MenuItem value="10">Projet recu</MenuItem>
+                            <MenuItem value="10">En cours de lecture</MenuItem>
+                            <MenuItem value="10">Accepté</MenuItem>
+                            <MenuItem value="20">Refusé</MenuItem>
+                        </TextField>
 
                         <IconButton color="secondary" onClick={() => {setDeleteConfirmationIsShown(true); setTodoToBeDeleted(todo)}}><DeleteIcon></DeleteIcon></IconButton>
                     </TableCell>
@@ -404,5 +382,6 @@ function AdminDevis(props){
             </Fragment>
             );           
 }
+
 
 export default withStyles(styles)(AdminDevis);
