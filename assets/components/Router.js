@@ -1,9 +1,27 @@
+
 import React from 'react';
+
+import BrowserRouter from 'react-router-dom/BrowserRouter';
+import Route from 'react-router-dom/Route';
+import Switch from 'react-router-dom/Switch';
+import Redirect from 'react-router-dom/Redirect';
+
+import {makeStyles} from '@material-ui/core/styles';
+
+import NotFound from './NotFound';
+import TodoContextProvider from '../contexts/TodoContext';
 import AppSnackbar from './AppSnackbar';
 import Navigation from './Navigation';
 import TodoTable from './TodoTable';
-import TodoContextProvider from '../contexts/TodoContext';
-import { makeStyles } from '@material-ui/core';
+
+const TodoList = () => (
+
+    <TodoContextProvider>           
+                <TodoTable/>
+                <AppSnackbar/>
+    </TodoContextProvider>
+
+);
 
 const useStyles = makeStyles(theme => ({
     divider: theme.mixins.toolbar,
@@ -16,14 +34,16 @@ const Router = () => {
     const classes = useStyles();
 
     return (
-        <div>
+        <BrowserRouter>
             <Navigation/>
             <div className={classes.divider}/>
-            <TodoContextProvider>           
-                <TodoTable/>
-                <AppSnackbar/>
-            </TodoContextProvider>
-        </div>
+            <Switch>
+                <Redirect exact from="/" to="/todo-list"/>
+                    <Route exact path="/todo-list" component={TodoList}/>
+                    <Route exact path="/tag-list" component={null}/>
+                    <Route component={NotFound}/>
+            </Switch>
+        </BrowserRouter>
 
 
     );
