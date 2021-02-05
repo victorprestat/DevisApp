@@ -1,5 +1,5 @@
 import React from 'react';
-import { MuiThemeProvider, createMuiTheme } from '@material-ui/core';
+import { MuiThemeProvider, createMuiTheme, responsiveFontSizes } from '@material-ui/core';
 import { CssBaseline } from '@material-ui/core';
 
 const theme = createMuiTheme({
@@ -8,10 +8,12 @@ const theme = createMuiTheme({
     }
 })
 
+const responsiveTheme = responsiveFontSizes(theme);
+
 const DefaultThemeProvider = (props) => {
     
     return (
-        <MuiThemeProvider theme={theme}>
+        <MuiThemeProvider theme={responsiveTheme}>
             <CssBaseline/>
             {props.children}
         </MuiThemeProvider>

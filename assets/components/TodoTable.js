@@ -9,12 +9,21 @@ import AddIcon from '@material-ui/icons/Add';
 import DoneIcon from '@material-ui/icons/Done';
 import CancelIcon from '@material-ui/icons/Cancel';
 import DeleteDialog from './DeleteDialog';
+import { fontWeight } from '@material-ui/system';
 
 const styles = (theme) => createStyles( {
     thead: {
         backgroundColor: 'orange',
     },
+    td: {
+        padding: theme.spacing(5),
+    },
+    bold: {
+        fontWeightBold: 500,
+    },
 });
+
+
 
 function TodoTable(props){
 
@@ -77,13 +86,13 @@ function TodoTable(props){
                     </TableRow>
                 </TableHead>
                 <TableBody>
-                    <TableRow>
-                        <TableCell>
+                    <TableRow className={classes.td}>
+                        <TableCell className={classes.td}>
                             <TextField value={addTodo} onChange={(event) => {
                                 setAddTodo(event.target.value);
                                 }} label="Devis"/>
                         </TableCell>
-                        <TableCell>
+                        <TableCell className={classes.td}>
                             <TextField value={addTodo1} onChange={(event) => {
                                 setAddTodo1(event.target.value);
                                 }} label="Votre Client"/>
@@ -91,7 +100,7 @@ function TodoTable(props){
                                 setAddTodo2(event.target.value);
                                 }} label="Société"/>
                         </TableCell>
-                        <TableCell>
+                        <TableCell className={classes.td}>
                             <TextField value={addTodo3} onChange={(event) => {
                                 setAddTodo3(event.target.value);
                                 }} label="Code Postal Client"/>
@@ -99,7 +108,7 @@ function TodoTable(props){
                                 setAddTodo4(event.target.value);
                                 }} label="Code Postal Société"/>
                         </TableCell>
-                        <TableCell>
+                        <TableCell className={classes.td}>
                             <TextField value={addTodo5} onChange={(event) => {
                                 setAddTodo5(event.target.value);
                                 }} label="N° Téléphone Client"/>
@@ -107,7 +116,7 @@ function TodoTable(props){
                                 setAddTodo6(event.target.value);
                                 }} label="N° Téléphone Société"/>
                         </TableCell>
-                        <TableCell>
+                        <TableCell className={classes.td}>
                             <TextField value={addTodo7} onChange={(event) => {
                                 setAddTodo7(event.target.value);
                                 }} label="Intitulé 1"/>
@@ -115,7 +124,7 @@ function TodoTable(props){
                                 setAddTodo8(event.target.value);
                                 }} label="Montant"/>
                         </TableCell>
-                        <TableCell>
+                        <TableCell className={classes.td}>
                             <TextField value={addTodo9} onChange={(event) => {
                                 setAddTodo9(event.target.value);
                                 }} label="Intitulé 2"/>
@@ -123,7 +132,7 @@ function TodoTable(props){
                                 setAddTodo10(event.target.value);
                                 }} label="Montant"/>
                         </TableCell>
-                        <TableCell>
+                        <TableCell className={classes.td}>
                             <TextField value={addTodo11} onChange={(event) => {
                                 setAddTodo11(event.target.value);
                                 }} label="Montant Total"/>
@@ -151,7 +160,7 @@ function TodoTable(props){
                     </TableRow>
                     {context.todos.slice().reverse().map((todo, index) => (
                     <TableRow key={'todo ' + index}>
-                    <TableCell>
+                    <TableCell >
                     
                     {editIsShown === todo.id ?
                     <TextField value={editTodo} onChange={(event) => {setEditTodo(event.target.value)}}
@@ -404,11 +413,11 @@ function TodoTable(props){
 
 
 
-                        <IconButton onClick={() => {setEditIsShown(todo.id); setEditIsShown1(todo.id); setEditIsShown2(todo.id); setEditIsShown3(todo.id); setEditIsShown4(todo.id); setEditIsShown5(todo.id); setEditIsShown6(todo.id); setEditIsShown7(todo.id); setEditIsShown8(todo.id); setEditIsShown9(todo.id); setEditIsShown10(todo.id); setEditIsShown11(todo.id); setEditTodo(todo.name); setEditTodo1(todo.customer); setEditTodo2(todo.company); setEditTodo3(todo.cpclient); setEditTodo4(todo.cpcompany); setEditTodo5(todo.telclient); setEditTodo6(todo.telcompany); setEditTodo7(todo.inti1); setEditTodo8(todo.montant1); setEditTodo9(todo.inti2); setEditTodo10(todo.montant2); setEditTodo11(todo.montantTotal)}}><EditIcon></EditIcon></IconButton>
+                        <IconButton color="primary" onClick={() => {setEditIsShown(todo.id); setEditIsShown1(todo.id); setEditIsShown2(todo.id); setEditIsShown3(todo.id); setEditIsShown4(todo.id); setEditIsShown5(todo.id); setEditIsShown6(todo.id); setEditIsShown7(todo.id); setEditIsShown8(todo.id); setEditIsShown9(todo.id); setEditIsShown10(todo.id); setEditIsShown11(todo.id); setEditTodo(todo.name); setEditTodo1(todo.customer); setEditTodo2(todo.company); setEditTodo3(todo.cpclient); setEditTodo4(todo.cpcompany); setEditTodo5(todo.telclient); setEditTodo6(todo.telcompany); setEditTodo7(todo.inti1); setEditTodo8(todo.montant1); setEditTodo9(todo.inti2); setEditTodo10(todo.montant2); setEditTodo11(todo.montantTotal)}}><EditIcon></EditIcon></IconButton>
 
 
 
-                        <IconButton onClick={() => {setDeleteConfirmationIsShown(true); setTodoToBeDeleted(todo)}}><DeleteIcon></DeleteIcon></IconButton>
+                        <IconButton color="secondary" onClick={() => {setDeleteConfirmationIsShown(true); setTodoToBeDeleted(todo)}}><DeleteIcon></DeleteIcon></IconButton>
                     </TableCell>
                     </TableRow>
                     ))}
