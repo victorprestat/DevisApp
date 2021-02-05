@@ -45,38 +45,49 @@ class TodoType extends AbstractType
             ])
             ->add('cpclient', TextAreaType::class, [
                 'constraints' => [
-                    new NotEqualTo([
-                        'value' => 5,
-                        'message' => 'Vous devez rentrer un code postal valide.',
+                    new Length([
+                        'min' => 5,
+                        'max' => 5,
 
+                        'minMessage' => 'Vous devez rentrer un code postal valide.',
+                        'maxMessage' => 'Vous devez rentrer un code postal valide.',
                     ]),
                     new Type(['digit', 'message' => 'Vous devez rentrer un code postal valide.'])
                 ]
             ])
             ->add('cpcompany', TextAreaType::class, [
                 'constraints' => [
-                    new NotEqualTo([
-                        'value' => 5,
-                        'message' => 'Vous devez rentrer un code postal valide.',
+                    new Length([
+                        'min' => 5,
+                        'max' => 5,
+
+                        'minMessage' => 'Vous devez rentrer un code postal valide.',
+                        'maxMessage' => 'Vous devez rentrer un code postal valide.',
                     ]),
                     new Type(['digit', 'message' => 'Vous devez rentrer un code postal valide.'])
                 ]
             ])
             ->add('telclient', TelType::class, [
                 'constraints' => [
-                    new NotEqualTo([
-                        'value' => 10,
-                        'message' => 'Vous devez rentrer un numéro de téléphone client valide.',
+                    new Length([
+                        'min' => 9,
+                        'max' => 10,
 
+                        'minMessage' => 'Vous devez rentrer un numéro de téléphone Client valide.',
+                        'maxMessage' => 'Vous devez rentrer un numéro de téléphone Client valide.',
                     ]),
+                    
                     new NotBlank(['message' => 'Vous devez rentrer un numéro de téléphone valide.'])
                 ]
             ])
             ->add('telcompany', TelType::class, [
                 'constraints' => [
-                    new NotEqualTo([
-                        'value' => 10,
-                        'message' => 'Vous devez rentrer un numéro de téléphone Société valide.',
+                    new Length([
+                        'min' => 9,
+                        'max' => 10,
+
+                        'minMessage' => 'Vous devez rentrer un numéro de téléphone Société valide.',
+                        'maxMessage' => 'Vous devez rentrer un numéro de téléphone Société valide.',
                     ]),
                     new NotBlank(['message' => 'Vous devez rentrer un numéro de téléphone valide.'])
                 ]
