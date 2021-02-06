@@ -1,27 +1,23 @@
 import Table from '@material-ui/core/Table'
 import React, {useContext, useState, Fragment} from 'react';
 import { TodoContext } from '../contexts/TodoContext';
-import { TableHead, TableCell, TableBody, Icon, IconButton, TextField, createStyles, withStyles } from '@material-ui/core';
+import { TableHead, TableCell, TableBody, Icon, IconButton, TextField, createStyles, withStyles, Box } from '@material-ui/core';
 import TableRow from '@material-ui/core/TableRow';
-import EditIcon from '@material-ui/icons/Edit';
-import DeleteIcon from '@material-ui/icons/Delete';
-import AddIcon from '@material-ui/icons/Add';
 import DoneIcon from '@material-ui/icons/Done';
-import CancelIcon from '@material-ui/icons/Cancel';
 import Button from '@material-ui/core/Button';
-import DeleteDialog from './DeleteDialog';
-import { fontWeight } from '@material-ui/system';
-import MenuItem from '@material-ui/core/MenuItem';
 
 const styles = (theme) => createStyles( {
     thead: {
-        backgroundColor: '#db6f39',
+        backgroundColor: '#6646bd',
     },
     td: {
         padding: theme.spacing(5),
     },
     bold: {
         fontWeightBold: 500,
+    },
+    mt: {
+        marginTop: '10px',
     },
 });
 
@@ -30,29 +26,9 @@ const styles = (theme) => createStyles( {
 function DevisConsult(props){
 
     const context = useContext(TodoContext);  
-    const [addTodo, setAddTodo] = useState(''); 
-    const [addTodo1, setAddTodo1] = useState('');
-    const [addTodo2, setAddTodo2] = useState('');
-    const [addTodo3, setAddTodo3] = useState('');
-    const [addTodo4, setAddTodo4] = useState('');
-    const [addTodo5, setAddTodo5] = useState('');
-    const [addTodo6, setAddTodo6] = useState('');
-    const [addTodo7, setAddTodo7] = useState('');
-    const [addTodo8, setAddTodo8] = useState('');
-    const [addTodo9, setAddTodo9] = useState('');
-    const [addTodo10, setAddTodo10] = useState('');
-    const [addTodo11, setAddTodo11] = useState('');
     const [editIsShown, setEditIsShown] = useState(false);
     const [editIsShown1, setEditIsShown1] = useState(false);
     const [editIsShown2, setEditIsShown2] = useState(false);
-    const [editIsShown3, setEditIsShown3] = useState(false);
-    const [editIsShown4, setEditIsShown4] = useState(false);
-    const [editIsShown5, setEditIsShown5] = useState(false);
-    const [editIsShown6, setEditIsShown6] = useState(false);
-    const [editIsShown7, setEditIsShown7] = useState(false);
-    const [editIsShown8, setEditIsShown8] = useState(false);
-    const [editIsShown9, setEditIsShown9] = useState(false);
-    const [editIsShown10, setEditIsShown10] = useState(false);
     const [editIsShown11, setEditIsShown11] = useState(false);
     const [editIsShown12, setEditIsShown12] = useState(false);
     const [editTodo, setEditTodo] = useState('');   
@@ -67,9 +43,7 @@ function DevisConsult(props){
     const [editTodo9, setEditTodo9] = useState('');
     const [editTodo10, setEditTodo10] = useState('');
     const [editTodo11, setEditTodo11] = useState('');
-    const [editTodo12, setEditTodo12] = useState('');
-    const [deleteConfirmationIsShown, setDeleteConfirmationIsShown] = useState(false); 
-    const [todoToBeDeleted, setTodoToBeDeleted] = useState(null);  
+    const [editTodo12, setEditTodo12] = useState(''); 
     
     //const classes = styles();
 
@@ -85,6 +59,8 @@ function DevisConsult(props){
                         <TableCell>Conculter ses devis</TableCell>
                         <TableCell/><TableCell/><TableCell/><TableCell/><TableCell/><TableCell/><TableCell/><TableCell/><TableCell/><TableCell/><TableCell/>
                         <TableCell></TableCell>
+                
+                <Button className={classes.mt} href="/pdf">Mes devis PDF</Button>
                     </TableRow>
                 </TableHead>
                 <TableBody>

@@ -53,7 +53,6 @@ const Navigation = () => {
                 </Link>
                 <Box flexGrow={1}/>
                 
-                <Button href="/pdf">Mes devis PDF</Button>
                 
             </Toolbar>
             <Drawer anchor="left" variant="temporary" onClose={toggleDrawer} open={drawerOpen}>
