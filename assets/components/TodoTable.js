@@ -21,6 +21,7 @@ const styles = (theme) => createStyles( {
     bold: {
         fontWeightBold: 500,
     },
+    
 });
 
 
@@ -416,19 +417,12 @@ function TodoTable(props){
                     <TableCell>
                     
                     {editIsShown12 === todo.id ?
-                    <TextField value={editTodo12} onChange={(event) => {setEditTodo12(event.target.value)}}
-                    InputProps={{
-                        endAdornment: <Fragment>
-                         <IconButton onClick={() => {context.updateTodo({id: todo.id, customer: editTodo1, name: editTodo, company: editTodo2, cpclient: editTodo3, cpcompany: editTodo4, telclient: editTodo5, telcompany: editTodo6, inti1: editTodo7, montant1: editTodo8, inti2: editTodo9, montant2: editTodo10, montantTotal: editTodo11, etat: editTodo12} );
-                         setEditIsShown12(false);
-                        }}></IconButton>
-                        
-                         </Fragment>,
-                      }}
+                    <TextField value={editTodo12} 
+                    
                       />
 
                         :
-                    todo.montantTotal
+                    todo.etat
                     }
                     
                     </TableCell>

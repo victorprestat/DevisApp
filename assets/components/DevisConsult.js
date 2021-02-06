@@ -56,7 +56,7 @@ function DevisConsult(props){
             <Table>
                 <TableHead className={classes.thead}>
                     <TableRow>
-                        <TableCell>Conculter ses devis</TableCell>
+                        <TableCell>Consulter ses devis</TableCell>
                         <TableCell/><TableCell/><TableCell/><TableCell/><TableCell/><TableCell/><TableCell/><TableCell/><TableCell/><TableCell/><TableCell/>
                         <TableCell></TableCell>
                 
